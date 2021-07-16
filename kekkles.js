@@ -30,7 +30,7 @@ const WebApp = () => {
   useEffect(() => {
     if (window.location.hash) {
       const { access_token, expires_in, token_type } =
-        getReturnedParamsFromSpotifyAuth(window.location.hash);
+        getReturnedParamsFromSpotifyAuth(window.location.hash); 
 
       localStorage.clear();
 
