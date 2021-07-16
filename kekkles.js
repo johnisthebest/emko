@@ -1,6 +1,3 @@
-import React, { useEffect } from "react";
-import SpotifyGetPlaylists from "./components/SpotifyGetPlaylists/SpotifyGetPlaylists";
-import "./WebApp.css";
 
 const CLIENT_ID = "81472223417c43ddba6f616bded26b4e"; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
