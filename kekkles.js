@@ -1,3 +1,6 @@
+import React, { useEffect } from "react";
+import SpotifyGetPlaylists from "./components/SpotifyGetPlaylists/SpotifyGetPlaylists";
+import "./WebApp.css";
 
 const CLIENT_ID = "81472223417c43ddba6f616bded26b4e"; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -30,7 +33,7 @@ const WebApp = () => {
   useEffect(() => {
     if (window.location.hash) {
       const { access_token, expires_in, token_type } =
-        getReturnedParamsFromSpotifyAuth(window.location.hash); 
+        getReturnedParamsFromSpotifyAuth(window.location.hash);
 
       localStorage.clear();
 
@@ -44,5 +47,13 @@ const WebApp = () => {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
 
+  return (
+    <div className="container">
+      <h1>hi</h1>
+      <button onClick={handleLogin}>login to spotify</button>
+      <SpotifyGetPlaylists />
+    </div>
+  );
 };
 
+export default WebApp;
