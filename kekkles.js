@@ -44,13 +44,5 @@ const WebApp = () => {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
 
-  return (
-    <div className="container">
-      <h1>hi</h1>
-      <button onClick={handleLogin}>login to spotify</button>
-      <SpotifyGetPlaylists />
-    </div>
-  );
 };
 
-export default WebApp;
