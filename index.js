@@ -1,3 +1,3 @@
-import WebApp from "./WebApp";
+import WebApp;
 
 export default WebApp;
