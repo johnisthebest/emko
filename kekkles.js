@@ -1,32 +1,11 @@
-var arr = ['a','b','c','d','e','f'];
-
-lng = arr.length;
-
-do 
+// Make sure "http://localhost:5000" is in your applications redirect URIs!
+var loginRequest = new LoginRequest(
+  new Uri("http://localhost:5000"),
+  "ClientId",
+  LoginRequest.ResponseType.Code
+)
 {
-n = 0;
-i = lng;
-
-function dn() {  
-arr.splice(n+1,1);
+  Scope = new[] { Scopes.PlaylistReadPrivate, Scopes.PlaylistReadCollaborative }
 };
-
-function dm() {  
-arr.splice(n,1);
-};
-
-console.log(arr[n]);
-console.log(arr[n+2]);
-
-lng = arr.length;
-
-console.log(lng);
-
-n = n+2;
-}
-while (i > 2)
-
-console.log(arr);
-
-
-
+var uri = loginRequest.ToUri();
+// Redirect user to uri via your favorite web-server
