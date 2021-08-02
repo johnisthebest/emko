@@ -1,0 +1,196 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>kekw</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+      #login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+
+ .wrapper { 
+
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+
+        min-width: 60%;
+        background-color: #f0eded;
+
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 5%;
+
+    } 
+
+    .header_h {
+      height: 100px;
+     /* outline: #505050 dashed 2px;*/
+      overflow:hidden;
+      
+    }
+
+    .header {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 30px;
+      line-height:0px;
+      text-align: center;
+      padding-bottom: 0%;
+      margin-bottom: 0;
+    }
+
+    .info {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 15px;
+      line-height:0px;
+      text-align: center;
+      padding-top: 0%;
+      margin-top: 0;
+    }
+    
+
+    .dv1 { 
+        min-width: 325px;
+        min-height: 500px;
+        postition: absolute;
+        float:left;
+        padding: 2%;
+        outline: #505050 dashed 2px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .dv2 { 
+        min-width: 325px;
+        min-height: 500px;
+        postition: absolute; 
+        float:right;
+        padding: 2%;
+        outline: #505050 dashed 2px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .h {
+       width: 300px;
+       height: 500px;
+       /*outline: #505050 dashed 2px;*/
+    }
+          
+    .ac {
+      min-width: 300px;
+      min-height: 300px;
+
+      postion:absolute;
+      border: none;
+
+    }
+
+    .s_name{
+       width: 300px;
+       height: 60px;
+       margin-top: 10%;
+
+      font-family: "Times New Roman", Times, serif;
+      font-size: 25px;
+      text-align: center;
+      
+      postion: absolute;
+      word-wrap: break-word;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .a_name{
+      width: 300px;
+      height: 40px;
+
+      font-family: "Times New Roman", Times, serif;
+      font-size: 20px;
+      text-align: center;
+
+      postion: relative;
+      word-wrap: break-word;
+
+    }
+
+    #obtain-new-token {
+      
+    }
+          
+
+    </style>
+  </head>
+
+  <body>
+
+<<div id="login">
+        <h1>This is an example of the Authorization Code flow</h1>
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+      </div>
+
+<div id="loggedin">
+  <div class="wrapper">
+
+     <div class="header_h"> 
+
+          <div class="header">
+             <h1> kekkles </h1>
+          </div>
+
+           <div class="info">
+             <p><i> how to kekkles </i></p>
+          </div>
+      </div>
+     
+      <div class = "dv1" id="df"> 
+
+        <div class ="h">
+         <button class ="ac" id="ac1"></button>
+          <h2><b><div class ="s_name" id="s_name1"></div></b></h2>
+          <div class ="a_name" id="a_name1"></div>
+
+        </div>
+      </div>
+
+      <div class = "dv2" id="de"> 
+
+        <div class ="h">
+         <button class ="ac" id="ac2"></button>
+         <h2><b><div class ="s_name" id="s_name2"></div></b></h2>
+          <div class ="a_name" id="a_name2"></div>
+
+        </div>
+      </div>
+   <button class="btn btn-default" id="obtain-new-token">refresh token</button>
+  </div>
+  
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script> 
+    <script src="sptfy_actions.js"> </script>
+    <script type="text/javascript"> sptfy(); </script>
+
+ </body>
+</html>
