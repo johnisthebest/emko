@@ -1,0 +1,305 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>kekw</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+      #login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+
+ .wrapper { 
+
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+
+        min-width: 60%;
+        background-color: #121212;
+        background: rgba(255, 255, 255, .05);
+        box-shadow: -1px 1px 10px -2px #000000;
+
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 5%;
+
+    } 
+
+    .header_h {
+      height: 100px;
+
+      overflow:hidden;
+      
+    }
+
+    .header {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 30px;
+      line-height:0px;
+      text-align: center;
+      padding-bottom: 0%;
+      margin-bottom: 0;
+
+      color: rgba(255, 255, 255, .87);
+    }
+
+
+    .info {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 15px;
+      line-height:0px;
+      text-align: center;
+      padding-top: 0%;
+      margin-top: 0;
+
+      color: rgba(255, 255, 255, .60);
+    }
+
+
+    .w_button {
+      margin: auto 0;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      min-width: 100%
+      float: Right;
+      line-height: 0;
+    }
+    
+
+    .dv1 { 
+        min-width: 325px;
+        min-height: 400px;
+        postition: relative;
+        float:left;
+        padding: 2%;
+
+        outline: solid 1px;
+        outline-color: rgba(255, 255, 255, .87);
+       
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .dv2 { 
+        min-width: 325px;
+        min-height: 400px;
+        postition: relative; 
+        float:right;
+        padding: 2%;
+
+        outline: solid 1px;
+        outline-color: rgba(255, 255, 255, .87);
+        
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .h {
+       width: 300px;
+       height: 500px;
+    }
+          
+    .ac {
+      width: 300px;
+      height: 300px;
+      box-shadow: -1px 1px 10px -2px #000000;
+
+      postion:absolute;
+      border: none;
+      object-fit: contain;
+
+      padding-top: 1%;
+
+    }
+
+    .s_name{
+       width: 300px;
+       height: 60px;
+       margin-top: 10%;
+
+      font-family: "Times New Roman", Times, serif;
+      font-size: 25px;
+      text-align: center;
+      color: rgba(255, 255, 255, .87);
+      
+      postion: relative;
+      word-wrap: break-word;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .a_name{
+      width: 300px;
+      height: 40px;
+      color: rgba(255, 255, 255, .60);
+
+      font-family: "Times New Roman", Times, serif;
+      font-size: 20px;
+      text-align: center;
+
+      postion: relative;
+      word-wrap: break-word;
+
+    }
+
+    #obtain-new-token {
+    poistion: relative;
+    text-align: center;
+    border: none;
+
+
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, .38);
+
+    }
+
+    .login_button {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 15px;
+      text-align: center;
+
+      box-shadow: 1px 1px 10px -2px #000000;
+      line-height: 0;
+
+    }
+
+    .L_text {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 25px;
+      text-align: center;
+      color: rgba(255, 255, 255, .87);
+    } 
+    
+    .L_wrapper{
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+
+         padding: 5%;
+
+
+    }      
+    .L_top{
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #121212;
+      background: rgba(255, 255, 255, .05);
+      padding: 5%;
+
+      box-shadow: -1px 1px 10px -2px #000000;
+
+    }
+
+    .L_bottom{
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding-top: 5%;
+
+    }
+
+    </style>
+  </head>
+
+  <body style ="background-color: #121212">
+
+<div id="login">
+
+  <div class="L_wrapper">
+    <div class ="L_top">
+              <div class = "L_text">
+                <h1>hi emko smileyface</h1>
+        </div>
+    </div>
+    <div class="L_bottom">
+        <a href="/login" class="btn btn-primary" id="login_button">I, emko will no longer let john down. Upon clicking, I constent and acknowledge this statement to be a legally binding agreement.</a>
+    </div>
+</div>
+</div>
+
+<div id="loggedin">
+  <div class="wrapper">
+
+     <div class="header_h"> 
+
+          <div class="header">
+             <h1> I, emko favor ____. </h1>
+          </div>
+
+          <div class="info">
+             <p><i> click selection </i></p>
+          </div>
+
+           
+      </div>
+     
+      <div class = "dv1" id="df"> 
+
+        <div class ="h">
+         <button class ="ac" id="ac1"></button>
+          <h2><b><div class ="s_name" id="s_name1"></div></b></h2>
+          <div class ="a_name" id="a_name1"></div>
+
+        </div>
+      </div>
+
+      <div class = "dv2" id="de"> 
+
+        <div class ="h">
+         <button class ="ac" id="ac2"></button>
+         <h2><b><div class ="s_name" id="s_name2"></div></b></h2>
+          <div class ="a_name" id="a_name2"></div>
+
+        </div>
+      </div>
+ 
+  </div>
+<div class="w_button">
+             <i> 
+            <b><button class="btn btn-default" id="obtain-new-token">To refresh API access code click me. Code expries every hour.</button></b>
+
+             </i> 
+          </div>
+
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script> 
+    <script src="sptfy_actions.js"> </script>
+    <script type="text/javascript"> sptfy(); </script>
+
+ </body>
+</html>
