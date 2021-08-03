@@ -80,13 +80,14 @@ let user = new Promise(function(resolve,) {
              })
 }); 
 
-user.then((result) => { console.log(username);
-                
-// -------------------------------------------------- Get playlists made by user (max 200) (links)
+user.then((result) => { 
+
+console.log("User:" + " " + username);
+// -------------------------------------------------- Get playlists made by user (max 250) (links)
 
 var playlist_links = [];
 
-  for (z = 0; z < 151; z = z + 50) {
+  for (z = 0; z < 201; z = z + 50) {
 
           var playlist_url = 'https://api.spotify.com/v1/me/playlists?limit=50&offset=';
               playlist_url += encodeURIComponent (z);
@@ -102,9 +103,6 @@ var playlist_links = [];
 
               }         
   }
-
-  console.log(playlist_links);
-
   
  // -------------------------------------------------- Check playlists
 
@@ -155,8 +153,6 @@ let play_code = () => {
 
 
 play_code().then(results => { 
- 
-console.log(user_made);
 
 // -------------------------------------------------- Get tracks (MAX 300/playlist) (links)
 
@@ -221,8 +217,6 @@ let track_code = () => {
 
 track_code().then(results => {
 
-console.log(song_options);
-
 // -------------------------------------------------- Variable assginments + inital setup with API results
 
 var song_names = song_options.map (song_options => (song_options.name));
@@ -230,14 +224,14 @@ var song_names = song_options.map (song_options => (song_options.name));
 var song_artists = song_options.map (song_options => (song_options.artists));
 
 var song_ids = song_options.map (song_options => (song_options.id));
-    song_ids = song_ids.filter(function(entry) { return entry != null; });
+    // song_ids = song_ids.filter(function(entry) { return entry != null; });
 
 
 nmbr(song_names);
 artist1(song_artists);
 artist2(song_artists);
 
-var url_album = 'https://api.spotify.com/v1/tracks?ids='
+            var url_album = 'https://api.spotify.com/v1/tracks?ids='
                 url_album += encodeURIComponent (song_ids[n]) 
                 url_album += '%2C';
                 url_album += encodeURIComponent (song_ids[m])
@@ -265,10 +259,6 @@ var url_album = 'https://api.spotify.com/v1/tracks?ids='
             })
 
 // -------------------------------------------------- Choosing process
-console.log(song_names);
-console.log(song_artists);
-
-
 
 let choice = new Promise(function(resolve,reject) {
 
@@ -277,8 +267,45 @@ let choice = new Promise(function(resolve,reject) {
 document.getElementById("ac1").addEventListener("click", function() {
 
   if (song_names.length == 2) {
-    console.log("done! you pick" + " " + song_names[n])
-    alert("done! you pick" + " " + song_names[n])
+    console.log("done! Your favourite song is" + " " + song_names[n])
+
+    var modal = document.getElementById("f_modal");
+    function btn() { modal.style.display = "block"; }
+
+    // window.onclick = function(event) {
+    //                   if (event.target == modal) {
+    //                   modal.style.display = "none";
+    //                 }
+    // }
+
+    btn();
+
+    document.getElementById('s_name_f').innerHTML=song_names[n];
+    artist1_f(song_artists);
+
+            var url_album = 'https://api.spotify.com/v1/tracks?ids='
+                url_album += encodeURIComponent (song_ids[n]) 
+
+            let album_code = new Promise (function(resolve,reject) {
+
+                      fetch(url_album, {
+                             method: 'GET', headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + access_token
+                            }
+                      })
+
+                      .then((response) => {return response.json()})
+                      .then((data) => { 
+                 
+                            var nofc = data.tracks;
+                            var cover = nofc.map (nofc => (nofc.album.images[1].url));
+                  
+                            document.getElementById('ac_f').style.backgroundImage= 'url(' + cover + ')';   
+
+                      })             
+            })
   }
   
   else {
@@ -324,8 +351,46 @@ document.getElementById("ac1").addEventListener("click", function() {
 document.getElementById("ac2").addEventListener("click", function() {
 
   if (song_names.length == 2) { 
-      console.log("done! you pick" + " " + song_names[m]);
-      alert("done! you pick" + " " + song_names[m]);
+      console.log("done! Your favourite song is" + " " + song_names[m])
+      
+    var modal = document.getElementById("f_modal");
+    function btn() { modal.style.display = "block"; }
+
+    // window.onclick = function(event) {
+    //                   if (event.target == modal) {
+    //                   modal.style.display = "none";
+    //                 }
+    // }
+
+    btn();
+
+    document.getElementById('s_name_f').innerHTML=song_names[m];
+    artist2_f(song_artists);
+
+            var url_album = 'https://api.spotify.com/v1/tracks?ids='
+                url_album += encodeURIComponent (song_ids[m]) 
+
+            let album_code = new Promise (function(resolve,reject) {
+
+                      fetch(url_album, {
+                             method: 'GET', headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + access_token
+                            }
+                      })
+
+                      .then((response) => {return response.json()})
+                      .then((data) => { 
+                 
+                            var nofc = data.tracks;
+                            var cover = nofc.map (nofc => (nofc.album.images[1].url));
+                  
+                            document.getElementById('ac_f').style.backgroundImage= 'url(' + cover + ')';   
+
+                      })             
+            })
+
   }
 
   else {
@@ -431,5 +496,39 @@ var artist_name = a_array.toString();
 var newchar = ', ';
 artist_name = artist_name.split(',').join(newchar);
 document.getElementById('a_name2').innerHTML= artist_name;
+
+}
+
+function artist1_f(song_artists) {
+
+var getout = song_artists[n];
+var a_array = [];
+
+for (i = 0; i < getout.length; i++) {
+var nofa = getout[i].name;
+a_array = a_array.concat(nofa);
+}
+
+var artist_name = a_array.toString();
+var newchar = ', ';
+artist_name = artist_name.split(',').join(newchar);
+document.getElementById('a_name_f').innerHTML= artist_name;
+
+}
+
+function artist2_f(song_artists) {
+
+var getout = song_artists[m];
+var a_array = [];
+
+for (i = 0; i < getout.length; i++) {
+var nofa = getout[i].name;
+a_array = a_array.concat(nofa);
+}
+
+var artist_name = a_array.toString();
+var newchar = ', ';
+artist_name = artist_name.split(',').join(newchar);
+document.getElementById('a_name_f').innerHTML= artist_name;
 
 }
